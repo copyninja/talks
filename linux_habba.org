@@ -1,0 +1,26 @@
+* AGENDA
++ History
+  - Introduction to FOSS GNU
+  - Introduction to Linux origin
++ Installation
+  - Install Media's
+    1. Live CD
+    2. USB
+    3. Netinstall...
+  - Partitioning Hard Disks
+  - Alternative Virtualbox installation information
++ Linux desktop overview
+  - Folder structure (each folder what it stands for)
+  - Desktop Environment (KDE GNOME)
+  - Mounting unmounting disks
++ Package Managementb
+  - Ways of obtaining installing softwares on Linux
++ Linux distributions
+  - Why so many Linux distributions
+  - Introducing popular Linux distributions
++ Contributing back to FOSS
+  - How can any one involve in FOSS projects
+    1. Development
+    2. Bug reporting
+    3. Testing
+  - How to create a new FOSS project (github, gitorious, savannah, code google)

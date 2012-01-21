@@ -1,0 +1,250 @@
+\documentclass[slidestop,compress,brown]{beamer}
+%\usepackage[bar]{beamerthemetree}
+\mode<presentation>{
+%% \usetheme{Madrid}
+\usetheme{Boadilla}
+\usecolortheme{wolverine}
+\setbeamercovered{transparent}
+}
+
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{url}
+\usepackage{xltxtra}
+
+\pgfdeclareimage[height=1cm]{sanchaya}{sanchaya}
+\logo{\pgfuseimage{sanchaya}}
+
+\setmainfont[Script=Kannada]{Navilu}
+\setsansfont[Script=Kannada]{Navilu}
+
+\newfontfamily\english{DejaVu Serif}
+\newcommand\en[1]{{\english #1}}
+
+\pgfdeclareimage[width=4cm]{who-am-i}{who-am-i}
+\pgfdeclareimage[width=4cm]{debian}{debian}
+\pgfdeclareimage[width=4cm]{xfce4}{xfce4}
+
+\title[\tiny{\en{FLOSS Development and Contribution}}]{ಮುಕ್ತ ತಂತ್ರಜ್ನಾನ ಅಭಿವೃದ್ಧಿ ಹಾಗೂ ಸಹಕಾರ}
+\author[ವಾಸು]{\en{Vasudev Kamath}}
+\institute[\en{Debian}]{}
+\date[ಹೆಜ್ಜೆ, ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ]{\en{January 22, 2012}\\
+  ಹೆಜ್ಜೆ - ತಂತ್ರಜ್ನಾನ ಮತ್ತು ಕನ್ನಡ\\
+  ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ}
+
+\AtBeginSection[]{
+  \begin{frame}
+    \frametitle{\en{Outline}}
+    \en{\tableofcontents[currentsection]}
+  \end{frame}
+}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}  
+
+\begin{frame}{\en{Outline}}
+  \tableofcontents
+\end{frame}
+
+%% Slide 2: Introduction
+\section{\en{Introduction}}
+\begin{frame}
+  \frametitle{ನನ್ನ ಬಗ್ಗೆ ಒಂದಿಷ್ಟು...}
+  \begin{columns}[c]
+    \column{.6\textwidth}
+    \begin{itemize}    
+    \item<2-> ನಾನ್ಯಾರು?...\\
+    \item<3-> ನಾನೇನು ಮಾಡುತ್ತಿದ್ದೇನೆ?...\\
+    \item<4-> ಮುಕ್ತ ತಂತ್ರಜ್ನಾನದೊಂದಿಗೆ ನನ್ನ ಒಡನಾಟವೇನು?...\\
+    \end{itemize}
+    \column{.4\textwidth}    
+    \includegraphics[height=5cm,keepaspectratio]{who-am-i}
+  \end{columns}
+\end{frame}
+
+%% Slide 3: Getting into World of FLOSS
+\section{\en{Getting into the World of FLOSS}}
+\begin{frame}{ಮುಕ್ತ ತಂತ್ರಜ್ನಾನದ ಜಗತ್ತಿನಲ್ಲಿ ಮೊದಲ ಹೆಜ್ಜೆ - ಹೇಗೆ?}
+  \begin{block}{}
+    ಮುಕ್ತ ತಂತ್ರಜ್ನಾನದ ಜಗತ್ತಿಗೆ ಕಾಲಿರಿಸಲು ನಾನೇನು ಮಾಡಬೇಕು?...\linebreak[2]
+  \end{block}
+  \begin{center}
+    \begin{tabular}{l c c r}
+      \includegraphics[width=2cm,height=2cm,keepaspectratio]{OSI-logo} &
+      \includegraphics[width=2cm,height=2cm,keepaspectratio]{gnu} &
+      \includegraphics[width=2cm,height=2cm,keepaspectratio]{tux} &
+      \includegraphics[width=2cm,height=2cm,keepaspectratio]{beastie}
+    \end{tabular}
+  \end{center}
+  \begin{enumerate}
+  \item <+-| alert@+> \en{The Dummy Path}\\
+    ಸಾಮಾನ್ಯ ಮಾನವನ ಹಾದಿ\\
+  \item<+-| alert@+> \en{The Hacker Path} \\
+    ತಂತ್ರಜ್ನಾನ ಪರಿಣತನ ಹಾದಿ\\
+  \end{enumerate}
+\end{frame}
+
+%% Slide 4 : The Dummy Path
+\section{\en{The Dummy Path}}
+\begin{frame}{\en{Dummy Path} - ಸಾಮಾನ್ಯ ಮನುಷ್ಯನ ಹಾದಿ}
+  \begin{block}{ಸಾಮಾನ್ಯರ ಪ್ರಶ್ನೆ}
+    ನಾನು ಒಂದು ಮುಕ್ತ ತಂತ್ರಾಂಶವನ್ನು ಉಪಯೋಗಿಸುತ್ತಿದ್ದೇನೆ. ನಾನು ಅದಕ್ಕೇನಾದರು \en{contribute} ಮಾಡಬೇಕೆಂದಿದ್ದೇನೆ, ಆದರೆ ನಾನು ಪ್ರೊಗ್ರಾಮರ್ ಅಲ್ಲ :(.\linebreak[2]
+  \end{block}
+  \pause
+  \en{\textit{Contribute}} ಮಾಡಲು...\linebreak[2]
+  \begin{itemize}[<+->]
+  \item<+-| alert@+> ನೀವು ತಂತ್ರಜ್ನರಾಗಿರಬೇಕೆಂದಿಲ್ಲ.
+  \item<+-| alert@+> ನಿಮಗೆ ತಂತ್ರಾಂಶದಲ್ಲಿ ಬಳಸಿರುವ \en{programming language} ಬಗ್ಗೆ ನಿಮಗೆ ತಿಳಿದಿರಬೇಕೆಂದಿಲ್ಲ
+  \item <+-| alert@+> ತಂತ್ರಾಂಶ ಬಳಸಲು ತಿಳಿದಿದ್ದರೆ ಸಾಕು.
+  \end{itemize}  
+\end{frame}
+
+%% Slide 5 : Dummy path continue
+\begin{frame}{\en{Dummy Path - continued\ldots}}
+  \begin{block}<2->
+    {ತಂತ್ರಾಂಶವನ್ನು ಬಳಸಿ}
+  \end{block}
+  \begin{block}<3->
+    {ನಿಮ್ಮ ಗೆಳೆಯರಿಗೂ ಬಳಸುವುದನ್ನು ಹಾಗು ನೀವು ಕಲಿತದ್ದನ್ನು ಹೇಳಿ ಕೊಡಿ}
+  \end{block}
+  \begin{block}<4->
+    {\emph{\en{Bug}}ಗಳನ್ನು ರಿಪೋರ್ಟ್ ಮಾಡಿ}
+  \end{block}
+  \begin{block}<5->
+    {\emph{\en{Documentation}} ಬರೆಯಲು ಸಹಕರಿಸಿ}
+  \end{block}
+  \begin{block}<6->
+    {\emph{\en{Documentation}} ಅನ್ನು ಕನ್ನಡಕ್ಕೆ ಅನುವಾದಿಸಲು ಸಹಕರಿಸಿ}
+  \end{block}
+  \begin{block}<7->
+    {ತಂತ್ರಾಂಶವನ್ನು ಕನ್ನಡಕ್ಕೆ ಅನುವಾದಿಸಲು ಸಹಕರಿಸಿ}
+  \end{block}
+\end{frame}
+
+%% Slide 6 : Help needed projects
+\begin{frame}{\en{Dummy Path -} ನೀವೂ ಸಹಕರಿಸಬಹುದು}
+  \begin{columns}[c]
+    \column{.6\textwidth}
+    \begin{block}{\en{KDE Project}}<1->
+      \tiny{ಸಂಪರ್ಕಿಸಿ:\\ ಶಂಕರ್ ಪ್ರಸಾದ್ \en{<\texttt{prasad.mvs@gmail.com}>}\\
+        \en{Mailing list <\texttt{kde-l10n-kn@lists.kde.org}>}}
+    \end{block}
+    \begin{block}{\en{Debian Installer and Debconf Templates}}<2->
+      \tiny{ಸಂಪರ್ಕಿಸಿ:\\ನಾನು \en{<\texttt{kamathvasudev@gmail.com}>}\\
+        \en{Christian Perrier <\texttt{bubulle@debian.org}\en{>}}\\
+        \en{Mailing list <\texttt{debian-l10n-kn@lists.debian.org}>}}
+    \end{block}
+    \begin{block}{\en{Xfce4 Translation Project}}<3->
+      \tiny{ಸಂಪರ್ಕಿಸಿ:\\
+        ವಾಸುದೇವ ಕಾಮತ್ \en{<\texttt{kamathvasudev@gmail.com}>}\\
+        ಶಂಕರ್ ಪ್ರಸಾದ್ \en{<\texttt{prasad.mvs@gmail.com}>}\\
+        \en{Mailing list <\texttt{dev@lists.sanchaya.net}>}}
+    \end{block}
+    \column{.4\textwidth}
+    \includegraphics[width=4cm,height=8cm,keepaspectratio]{kde}<1>
+    \includegraphics[width=4cm,height=8cm,keepaspectratio]{debian}<2>
+    \includegraphics[width=4cm,height=8cm,keepaspectratio]{xfce4}<3>
+  \end{columns}
+\end{frame}
+
+%% Slide 7: Hacker Path
+\section{\en{The Hacker Path}}
+\begin{frame}{\en{The Hacker Path -} ಒಂದು \en{example} ಜೊತೆ}
+  \begin{block}{ನನ್ನ ಗೆಳೆಯ ಕನ್ನಡ ಡಿಕ್ಷನರಿ ಪಂಡಿತ}
+    \texttt{\en{kn.dict.bot@jabber.org}}
+  \end{block}
+  \begin{itemize}[<+->]
+  \item<+-| alert@+> ಏನಿದು?...
+  \item<+-| alert@+> \en{Source code} ಎಲ್ಲಿದೆ?... \en{(How to share code and collaborate?)}
+    \vfill
+    \begin{flushright}
+      \begin{block}{\en{Gitorious}}
+        \tiny{\en{URL: \url{https://gitorious.org/dictionary-bot}\\
+        License: \emph{GPLv3}\\
+        Language: \emph{Python}}}
+      \end{block}
+    \end{flushright}
+  \end{itemize}
+\end{frame}
+
+%% Slide 8 - About collaboration
+\begin{frame}{\en{The Hacker Path - Code Sharing and collaboration}}
+  \begin{columns}[c]
+    \column{.5\textwidth}<2->
+    \begin{block}{\en{GitHub}}
+      \url{https://github.com}
+     \end{block}
+    \begin{block}{\en{Gitorious}}<3->
+      \url{https://gitorious.org}
+    \end{block}
+    \begin{block}{\en{Google Code}}<4->
+      \url{http://code.google.com}
+    \end{block}
+    \begin{block}{\en{Savannah}}<5->
+      \url{https://savannah.nongnu.org/}\\
+      \url{https://savannah.gnu.org/}
+    \end{block}
+    \column{.5\textwidth}
+    \includegraphics[width=4cm,keepaspectratio]{github}<2>
+    \includegraphics[width=4cm,keepaspectratio]{gitorious}<3>
+    \includegraphics[width=4cm,keepaspectratio]{code_logo}<4>
+    \includegraphics[width=4cm,keepaspectratio]{gnu-monk}<5>
+ \end{columns}
+\end{frame}
+
+%% Slide 9 - Collaboration tools
+\begin{frame}{\en{The Hacker Path - Other Collaboration tools}}
+  \begin{itemize}[<+->]
+  \item<+-| alert@+> \en{Mailing Lists}
+    \begin{itemize}
+    \item \en{\texttt{debian-devel@lists.debian.org}}
+    \item \en{\texttt{dev@lists.sanchaya.net}}
+    \item \en{Google Groups}
+    \item \en{Libre List}
+    \end{itemize}
+  \item<+-| alert@+> \en{Internet Relay Chat}
+    \begin{itemize}
+    \item \en{\#{}debian-in irc.oftc.net}
+    \item \en{\#{}sanchaya irc.freenode.net}
+    \item \en{Pidgin}
+    \item \en{Chatzilla}
+    \end{itemize}
+  \item<+-| alert@+> \en{Hacker Meetups}
+    \begin{itemize}
+      \item \en{DebConf, MiniDebconf's}
+      \item \en{FudCon}
+      \item \en{Fossmeet \url{http://fossmeet.in}}
+      \item ಹೆಜ್ಜೆ!!
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+%% Slide 10 - Questions?
+\section{\en{Questions?}}
+\begin{frame}{ಪ್ರಶ್ನೆಗಳು?\en{\ldots}}
+  \begin{center}
+    \includegraphics[width=5cm,height=7cm,keepaspectratio]{who-am-i}
+  \end{center}
+\end{frame}
+
+%% Slide 11 - Thanks
+\begin{frame}
+  \begin{center}
+    \vfill \vfill
+    \huge{ಧನ್ಯವಾದಗಳು\linebreak}
+  \end{center}
+  \vfill
+  \tiny{
+    \begin{center}
+      \begin{tabular}{l c r}
+        \multicolumn{2}{l}{\en{Created with:}} \\
+        \huge{\en{\XeTeX{}}} &
+        \includegraphics[width=2cm,height=2cm,keepaspectratio]{emacs} &
+        \includegraphics[width=2cm,height=2cm,keepaspectratio]{debian}
+      \end{tabular}
+    \end{center}
+  }
+\end{frame}
+\end{document}
