@@ -1,0 +1,98 @@
+#+Title: Git Version Control System
+#+Author: Vāsudēv Kāmat 
+#+Email: vasudev@copyninja.info
+
+
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:nil reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1300 reveal_height:800 toc:nil frag: t
+
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_THEME: solarized
+#+REVEAL_HLEVEL: 2
+#+REVEAL_TRANS: cube
+#+REVEAL_ROOT: file:///c:/reveal.js/
+
+
+* What is Revision Control/Source Control?.
+#+ATTR_REVEAL: :frag (appear appear)
+  - SCM - Software Configuration Management
+    #+BEGIN_NOTES
+    - identification
+    - control
+    - Status accounting
+    - auditing
+    - build management
+    - process management
+    - team work
+    - defect tracking
+   #+END_NOTES
+  - Ability to track different versions of software
+
+* Types of Version Control system
+#+ATTR_REVEAL: :frag (appear appear)
+  - Centralized
+    #+BEGIN_NOTES
+     - Central authoritative repository
+     - Check-in Check-out branching wrt the central repository
+     - Possibility of overwrite when 2 developers change same file. Eg. - CVS
+       - Atomic Commits
+       - File Locking
+       - Version Merging
+	 - works well with text file
+	 - image file problematic
+	 - possible logic error introduction
+       - Baselines labels and tags
+    #+END_NOTES
+  - Distributed
+    #+BEGIN_NOTES
+     - No canonical code copy only working copy
+     - Each working copy is full remote backup
+     - Common operations are fast as no network operation involved (commits log etc.)
+     - Multiple mirrors can be setup
+    #+END_NOTES
+
+* What is Git?
+  #+ATTR_REVEAL: :frag (roll-in roll-in roll-in)
+   - DVCS
+   - Developer for Linux kernel project by Linus Torvalds
+   - Features
+     #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in roll-in)
+     - Fast branching - branches are light weight
+     - Distributed nature
+     - Works with existing protocols FTP, HTTP, rsync, SSH and Git
+       over plain text or SSH
+     - Fast and Scalable
+     - Cryptographic authentication of history.
+       #+BEGIN_NOTES
+       Git uses SHA-1 to create commit, its possible to verify entire
+       directory of commit if we get top level SHA-1 object from
+       trusted source.
+
+       Trusted source is got by GPG/PGP digital signing.
+       #+END_NOTES
+   #+REVEAL: split
+   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in)
+   - Toolkit based design
+     #+BEGIN_NOTES
+      Every git command is independent binary or shell wrapper around
+      multiple binary rather than single complicated blob.
+
+      All these binaries are used together as required to perform git
+      operations.
+     #+END_NOTES
+   - Garbage collection
+   - Packing the data (packfile)
+
+* Starting with Git
+  Git has 3 main states where your file can be reside
+  1. Commited
+  2. Modified
+  3. Staged
+
+  #+REVEAL: split
+
+  #+ATTR_REVEAL: :frag roll-in
+  [[./areas.png]]
