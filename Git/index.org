@@ -11,7 +11,6 @@
 #+REVEAL_MIN_SCALE: 0.5
 #+REVEAL_MAX_SCALE: 2.5
 #+REVEAL_THEME: solarized
-#+REVEAL_HLEVEL: 2
 #+REVEAL_TRANS: cube
 #+REVEAL_ROOT: http://talks.copyninja.info/reveal.js
 
