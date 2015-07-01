@@ -95,4 +95,4 @@
   #+REVEAL: split
 
   #+ATTR_REVEAL: :frag roll-in
-  [[./areas.png]]
+  [[./images/areas.png]]
