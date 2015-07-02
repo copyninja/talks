@@ -96,3 +96,26 @@
 
   #+ATTR_REVEAL: :frag roll-in
   [[./images/areas.png]]
+
+* Installing Git
+** Linux
+  - RedHat and derivatives
+    #+BEGIN_SRC shell
+      sudo yum install git
+    #+END_SRC
+  - Debian and derivatives
+    #+BEGIN_SRC shell
+      sudo apt-get install git
+    #+END_SRC
+
+** Windows
+  - [[http://git-scm.com/download/win%20][From official Git site]]
+  - Msys Git available at [[http://msys.github.io/]]
+  - Github for Windows also provides git command line utilities
+    available from [[http://windows.github.com/]]
+
+** Mac
+  - [[http://git-scm.com/download/mac.][Official Git site]]
+  - Xcode developer tools from Mac comes with default Git installation.
+  - Github utility for mac also provides command line tools for git,
+    available from [[http://mac.github.com/]]
