@@ -97,8 +97,8 @@
   #+ATTR_REVEAL: :frag roll-in
   [[./images/areas.png]]
 
-* Installing Git
-** Linux
+** Installing Git
+*** Linux
   - RedHat and derivatives
     #+BEGIN_SRC shell
       sudo yum install git
@@ -108,14 +108,107 @@
       sudo apt-get install git
     #+END_SRC
 
-** Windows
+*** Windows
   - [[http://git-scm.com/download/win%20][From official Git site]]
   - Msys Git available at [[http://msys.github.io/]]
   - Github for Windows also provides git command line utilities
     available from [[http://windows.github.com/]]
 
-** Mac
+*** Mac
   - [[http://git-scm.com/download/mac.][Official Git site]]
   - Xcode developer tools from Mac comes with default Git installation.
   - Github utility for mac also provides command line tools for git,
     available from [[http://mac.github.com/]]
+
+** Configuring Git
+
+*** Author information
+   #+BEGIN_SRC sh
+     git config --global user.name "Vasudev Kamath"
+     git config --global user.email "vasudev@copyninja.info"
+   #+END_SRC
+
+    Configuration files
+    #+ATTR_REVEAL: :frag (appear appear appear)
+    1. /etc/gitconfig system level configuration information accessed
+       with `--system` option to `git config` command. Used across the
+       system.
+    2. ~/.gitconfig or ~/.config/git/config global user configuration
+       options.
+    3. ~/.git/config repository specific configurations.
+
+*** Editor information
+    #+BEGIN_SRC sh
+      git config --global core.editor nano
+    #+END_SRC
+
+*** Reading configuration values
+    Listing all configuration values
+    #+BEGIN_SRC sh
+      git config --list
+    #+END_SRC
+
+    Specific value
+    #+BEGIN_SRC sh
+      git config user.name
+      Vasudev Kamath
+    #+END_SRC
+
+** Accessing Help on Command
+   `git help <verb>`
+
+   Verb - Command name
+
+   #+ATTR_REVEAL: :frag roll-in
+   #+BEGIN_SRC sh
+     git help config
+   #+END_SRC
+
+* Creating Git Repository
+
+  For already existing project
+
+  #+ATTR_REVEAL: :frag roll-in
+  #+BEGIN_SRC sh
+    git init
+  #+END_SRC
+
+  #+ATTR_REVEAL: :frag roll-in
+  Add all required files and do initial commit
+
+  #+ATTR_REVEAL: :frag roll-in
+  #+BEGIN_SRC sh
+    git add *.c
+    git add *.h
+    git add LICENSE
+    git commit -m "Initial project version"
+  #+END_SRC
+
+#+REVEAL: split
+
+  Getting remote repository
+  #+ATTR_REVEAL: :frag roll-in
+  #+BEGIN_SRC sh
+    git clone [url]
+  #+END_SRC
+
+  URL can be `git:|http|https|git+ssh:`
+
+  #+ATTR_REVEAL: :frag roll-in
+  #+BEGIN_SRC sh
+    git clone https://github.com/libgit2/libgit2
+  #+END_SRC
+* Recording Changes to Repository
+  File can be of 2 state in working directory
+  1. Tracked
+  2. Untracked
+
+  #+ATTR_REVEAL: :frag appear
+  Each Tracked file can be in 3 states
+  #+ATTR_REVEAL: :frag appear
+  1. Unmodified
+  2. Modified
+  3. Staged
+
+#+REVEAL: split
+  [[./images/lifecycle.png]]
