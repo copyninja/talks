@@ -1,5 +1,5 @@
 #+Title: Git Version Control System
-#+Author: Vāsudēv Kāmat 
+#+Author: Vāsudēv Kāmat
 #+Email: vasudev@copyninja.info
 
 
