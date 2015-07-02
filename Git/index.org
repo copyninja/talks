@@ -86,8 +86,8 @@
    - Packing the data (packfile)
 
 * Starting with Git
-  #+ATTR_REVEAL: :frag (highlight-red highlight-red highlight-red)
   Git has 3 main states where your file can be reside
+  #+ATTR_REVEAL: :frag (highlight-red highlight-red highlight-red)
   1. Commited
   2. Modified
   3. Staged
