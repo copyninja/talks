@@ -1,0 +1,162 @@
+#+Title: Git Version Control Systems - 2
+#+Author: Vāsudēv Kāmat
+#+Email: vasudev@copyninja.info
+
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:nil reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1300 reveal_height:900 toc:nil frag: t
+
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_THEME: serif
+#+REVEAL_TRANS: linear
+#+REVEAL_ROOT: file:///c:/reveal.js/
+
+* Recap...
+  #+ATTR_REVEAL: :frag roll-in
+  1. Create
+  2. Tracking and untracking files
+  3. Checking repo status
+  4. Ignoring files from repository
+  5. Change viewing
+  6. Commiting changes
+  7. Viewing history
+  8. Moving and renaming files in repository
+  9. Undoing things
+
+* Working with Remotes
+  Ability to share you work with world and collaborate with others
+
+** Inspecting Remotes in a repository
+
+  Looking at the remotes in  a repository.
+
+
+  #+ATTR_REVEAL: :frag grow
+  #+BEGIN_SRC shell-script
+    $ git clone https://github.com/schacon/ticgit
+    Cloning into 'ticgit'...
+    remote: Reusing existing pack: 1857, done.
+    remote: Total 1857 (delta 0), reused 0 (delta 0)
+    Receiving objects: 100% (1857/1857), 374.35 KiB | 268.00 KiB/s, done.
+    Resolving deltas: 100% (772/772), done.
+    Checking connectivity... done.
+    $ cd ticgit
+    $ git remote
+    origin
+  #+END_SRC
+
+#+REVEAL: split
+
+  #+ATTR_REVEAL: :frag appear
+  Looking at remote url using ~-v~ option to ~git remote~ command
+
+  #+ATTR_REVEAL: :frag grow
+  #+BEGIN_SRC shell-script
+    $ git remote -v
+    origin  https://github.com/schacon/ticgit (fetch)
+    origin  https://github.com/schacon/ticgit (push)
+  #+END_SRC
+
+#+REVEAL: split
+
+  #+ATTR_REVEAL: :frag appar
+  Possible to have more than one remote
+  #+ATTR_REVEAL: :frag grow
+  #+BEGIN_SRC shell-script
+    $ cd grit
+    $ git remote -v
+    bakkdoor  https://github.com/bakkdoor/grit (fetch)
+    bakkdoor  https://github.com/bakkdoor/grit (push)
+    cho45     https://github.com/cho45/grit (fetch)
+    cho45     https://github.com/cho45/grit (push)
+    defunkt   https://github.com/defunkt/grit (fetch)
+    defunkt   https://github.com/defunkt/grit (push)
+    koke      git://github.com/koke/grit.git (fetch)
+    koke      git://github.com/koke/grit.git (push)
+    origin    git@github.com:mojombo/grit.git (fetch)
+    origin    git@github.com:mojombo/grit.git (push)
+  #+END_SRC
+
+#+REVEAL: split
+
+  #+BEGIN_SRC shell-script
+    $ git remote show origin
+    ,* remote origin
+      URL: https://github.com/my-org/complex-project
+      Fetch URL: https://github.com/my-org/complex-project
+      Push  URL: https://github.com/my-org/complex-project
+      HEAD branch: master
+      Remote branches:
+        master                           tracked
+        dev-branch                       tracked
+        markdown-strip                   tracked
+        issue-43                         new (next fetch will store in remotes/origin)
+        issue-45                         new (next fetch will store in remotes/origin)
+        refs/remotes/origin/issue-11     stale (use 'git remote prune' to remove)
+      Local branches configured for 'git pull':
+        dev-branch merges with remote dev-branch
+        master     merges with remote master
+      Local refs configured for 'git push':
+        dev-branch                     pushes to dev-branch                     (up to date)
+        markdown-strip                 pushes to markdown-strip                 (up to date)
+        master                         pushes to master                         (up to date)
+  #+END_SRC
+** Adding Remote Repositories
+   ~git remote add [shortname] [url]~
+
+   #+ATTR_REVEAL: :frag grow
+   #+BEGIN_SRC shell-script
+     $ git remote
+     origin
+     $ git remote add pb https://github.com/paulboone/ticgit
+     $ git remote -v
+     origin  https://github.com/schacon/ticgit (fetch)
+     origin  https://github.com/schacon/ticgit (push)
+     pb      https://github.com/paulboone/ticgit (fetch)
+     pb      https://github.com/paulboone/ticgit (push)
+   #+END_SRC
+
+** Fetch and Pull operation
+
+   ~git fetch [remote-name]~
+
+   #+ATTR_REVEAL: :frag grow
+   #+BEGIN_SRC shell-script
+     $ git fetch pb
+     remote: Counting objects: 43, done.
+     remote: Compressing objects: 100% (36/36), done.
+     remote: Total 43 (delta 10), reused 31 (delta 5)
+     Unpacking objects: 100% (43/43), done.
+     From https://github.com/paulboone/ticgit
+      ,* [new branch]      master     -> pb/master
+      ,* [new branch]      ticgit     -> pb/ticgit
+   #+END_SRC
+
+#+REVEAL: split
+   #+ATTR_REVEAL: :frag (appear appear appear)
+   - If ~remote-name~ is not specified by default ~origin~ is used
+   - ~fetch~ does not automatically merge changes
+   - ~git pull~ fetches changes from remote from which repo was cloned
+     and automatically merges it to remote tracking branch
+
+   #+ATTR_REVEAL: :frag (roll-in)
+   #+BEGIN_SRC shell-script
+     $ git fetch [remote-name]
+     $ git merge [remote-name]
+   #+END_SRC
+
+** Pushing changes
+   
+   ~git push [remote-name] [branch-name]~
+
+   #+ATTR_REVEAL: :frag appear
+   Example
+   ~git push origin master~
+
+   #+ATTR_REVEAL: :frag appear
+   This works only if
+   #+ATTR_REVEAL: :frag (roll-in roll-in)
+   - User has write access to remote repository
+   - No one has pushed in the mean time
